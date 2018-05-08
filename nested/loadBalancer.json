@@ -29,9 +29,6 @@
     "inboundNATRuleSSHBackendPort": {
       "type": "int"
     },
-    "publicIPAddressName": {
-      "type": "string"
-    },
     "location": {
       "type": "string"
     },
