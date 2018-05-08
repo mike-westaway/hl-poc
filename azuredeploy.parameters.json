@@ -1,0 +1,60 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "namePrefix": {
+      "value": "hl"
+    },
+    "authType": {
+      "value": "password"
+    },
+    "adminUsername": {
+      "value": "miwestaw"
+    },
+    "adminPassword": {
+      "value": null
+    },
+    "restrictAccess": {
+      "value": 1
+    },
+    "ipAddressOrSubnet": {
+      "value": "151.230.112.189"
+    },
+    "numMembershipNodes": {
+      "value": 1
+    },
+    "mnNodeVMSize": {
+      "value": "Standard_D1_v2"
+    },
+    "mnStorageAccountType": {
+      "value": "Standard_LRS"
+    },
+    "numOrdererNodes": {
+      "value": 1
+    },
+    "onNodeVMSize": {
+      "value": "Standard_D1_v2"
+    },
+    "onStorageAccountType": {
+      "value": "Standard_LRS"
+    },
+    "numPeerNodes": {
+      "value": 2
+    },
+    "pnNodeVMSize": {
+      "value": "Standard_D1_v2"
+    },
+    "pnStorageAccountType": {
+      "value": "Standard_LRS"
+    },
+    "CAUsername": {
+      "value": "miwestaw"
+    },
+    "CAPassword": {
+      "value": null
+    },
+    "location": {
+      "value": "northeurope"
+    }
+  }
+}
