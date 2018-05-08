@@ -283,8 +283,8 @@
                   "location": {
                     "value": "[parameters('location')]"
                   },
-                  "subnetName": {
-                    "value":  "[variables('subnetName')]"
+                  "subnetRef": {
+                    "value":  "[variables('subnetRef')]"
                   }
                 }
             }
