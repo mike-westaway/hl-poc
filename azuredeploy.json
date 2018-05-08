@@ -167,66 +167,66 @@
                 "description": "The base URL for dependent assets",
                 "artifactsBaseUrl": ""
             },
-            "defaultValue": "https://gallery.azure.com/artifact/20151001/microsoft-azure-blockchain.azure-blockchain-hyperledger-fabricsingle-member-hyperledger-fabric-consortium.1.0.2/Artifacts"
+            "defaultValue": "https://raw.githubusercontent.com/mike-westaway/hl-poc/master/"
         }
     },
-    "variables": {
-        "apiVersionDeployments": "2016-09-01",
-        "apiVersionPublicIPAddresses": "2016-09-01",
-        "apiVersionAvailabilitySets": "2017-03-30",
-        "apiVersionNetworkSecurityGroups": "2016-09-01",
-        "apiVersionNetworkInterfaces": "2016-09-01",
-        "apiVersionVirtualMachines": "2017-03-30",
-        "apiVersionVirtualNetworks": "2016-09-01",
-        "namingInfix": "[toLower(substring(concat(parameters('namePrefix'), uniqueString(resourceGroup().id)), 0, 9))]",
-        "availabilitySetName": "[concat(variables('namingInfix'), 'fabricAvSet')]",
-        "dnsName": "[variables('namingInfix')]",
-        "publicIPAddressName": "[concat(variables('dnsName'), '-publicip')]",
-        "loadBalancerName": "[concat(variables('namingInfix'), '-LB')]",
-        "loadBalancerBackendAddressPoolName": "LBBackendPool",
-        "loadBalancerInboundNatRuleNamePrefix": "NAT",
-        "httpPort": 80,
-        "sshPort": 22,
-        "sshStartingPort": 3000,
-        "adminSitePort": 3000,
-        "caVMNamePrefix": "[concat(variables('namingInfix'), '-ca')]",
-        "ordererVMNamePrefix": "[concat(variables('namingInfix'), '-orderer')]",
-        "peerVMNamePrefix": "[concat(variables('namingInfix'), '-peer')]",
-        "caNICPrefix": "nic-ca",
-        "ordererNICPrefix": "nic-orderer",
-        "peerNICPrefix": "nic-peer",
-        "subnetName": "[uniqueString(concat(resourceGroup().id, concat(variables('namingInfix'), 'subnet')))]",
-        "subnetPrefix": "10.0.0.0/24",
-        "nsgName": "[concat(variables('namingInfix'), 'nsg')]",
-        "sourceAddressPrefixArray": [
-            "*",
-            "[parameters('ipAddressOrSubnet')]"
-        ],
-        "sourceAddressPrefix": "[variables('sourceAddressPrefixArray')[parameters('restrictAccess')]]",
-        "subnetPropertiesArray": [
-            {
-                "name": "[variables('subnetName')]",
-                "properties": {
-                    "addressPrefix": "[variables('subnetPrefix')]",
-                    "networkSecurityGroup": {
-                        "id": "[resourceId('Microsoft.Network/networkSecurityGroups', variables('nsgName'))]"
-                    }
-                }
-            }
-        ],
-        "ubuntuImage": {
-            "publisher": "Canonical",
-            "offer": "UbuntuServer",
-            "sku": "16.04-LTS",
-            "version": "16.04.201801120"
-        },
-        "vNet": {
-            "name": "[concat(variables('namingInfix'), 'vnet')]",
-            "addressSpacePrefix": "10.0.0.0/20"
-        },
-        "vnetID": "[resourceId('Microsoft.Network/virtualNetworks', variables('vNet').name)]",
-        "subnetRef": "[concat(variables('vnetID'),'/subnets/', variables('subnetName'))]"
+  "variables": {
+    "apiVersionDeployments": "2016-09-01",
+    "apiVersionPublicIPAddresses": "2016-09-01",
+    "apiVersionAvailabilitySets": "2017-03-30",
+    "apiVersionNetworkSecurityGroups": "2016-09-01",
+    "apiVersionNetworkInterfaces": "2016-09-01",
+    "apiVersionVirtualMachines": "2017-03-30",
+    "apiVersionVirtualNetworks": "2016-09-01",
+    "namingInfix": "[toLower(substring(concat(parameters('namePrefix'), uniqueString(resourceGroup().id)), 0, 9))]",
+    "availabilitySetName": "[concat(variables('namingInfix'), 'fabricAvSet')]",
+    "dnsName": "[variables('namingInfix')]",
+    "publicIPAddressName": "[concat(variables('dnsName'), '-publicip')]",
+    "loadBalancerName": "[concat(variables('namingInfix'), '-LB')]",
+    "loadBalancerBackendAddressPoolName": "LBBackendPool",
+    "loadBalancerInboundNatRuleNamePrefix": "NAT",
+    "httpPort": 80,
+    "sshPort": 22,
+    "sshStartingPort": 3000,
+    "adminSitePort": 3000,
+    "caVMNamePrefix": "[concat(variables('namingInfix'), '-ca')]",
+    "ordererVMNamePrefix": "[concat(variables('namingInfix'), '-orderer')]",
+    "peerVMNamePrefix": "[concat(variables('namingInfix'), '-peer')]",
+    "caNICPrefix": "nic-ca",
+    "ordererNICPrefix": "nic-orderer",
+    "peerNICPrefix": "nic-peer",
+    "subnetName": "[uniqueString(concat(resourceGroup().id, concat(variables('namingInfix'), 'subnet')))]",
+    "subnetPrefix": "10.0.0.0/24",
+    "nsgName": "[concat(variables('namingInfix'), 'nsg')]",
+    "sourceAddressPrefixArray": [
+      "*",
+      "[parameters('ipAddressOrSubnet')]"
+    ],
+    "sourceAddressPrefix": "[variables('sourceAddressPrefixArray')[parameters('restrictAccess')]]",
+    "subnetPropertiesArray": [
+      {
+        "name": "[variables('subnetName')]",
+        "properties": {
+          "addressPrefix": "[variables('subnetPrefix')]",
+          "networkSecurityGroup": {
+            "id": "[resourceId('Microsoft.Network/networkSecurityGroups', variables('nsgName'))]"
+          }
+        }
+      }
+    ],
+    "ubuntuImage": {
+      "publisher": "Canonical",
+      "offer": "UbuntuServer",
+      "sku": "16.04-LTS",
+      "version": "16.04.201801120"
     },
+    "vNet": {
+      "name": "[concat(variables('namingInfix'), 'vnet')]",
+      "addressSpacePrefix": "10.0.0.0/20"
+    },
+    "vnetID": "[resourceId('Microsoft.Network/virtualNetworks', variables('vNet').name)]",
+    "subnetRef": "[concat(variables('vnetID'),'/subnets/', variables('subnetName'))]"
+  },
   "resources": [
     {
       "apiVersion": "[variables('apiVersionAvailabilitySets')]",
@@ -285,9 +285,12 @@
                     "publicIPAddressName": {
                         "value": "[variables('publicIPAddressName')]"
                     },
-                    "location": {
-                        "value": "[parameters('location')]"
-                    }
+                  "location": {
+                    "value": "[parameters('location')]"
+                  },
+                  "subnetName": {
+                    "value":  "[variables('subnetName')]"
+                  }
                 }
             }
         },

@@ -34,6 +34,9 @@
     },
     "location": {
       "type": "string"
+    },
+    "subnetRef": {
+      "type":  "string"
     }
   },
   "variables": {
@@ -57,8 +60,10 @@
           {
             "name": "[variables('lbFrontEndIpConfigName')]",
             "properties": {
-              "publicIPAddress": {
-                "id": "[resourceId('Microsoft.Network/publicIPAddresses/', parameters('publicIPAddressName'))]"
+              "privateIPAddress": "10.0.2.6",
+              "privateIPAllocationMethod": "static",
+              "subnet": {
+                "id":  "[parameters('subnetRef')]"
               }
             }
           }
