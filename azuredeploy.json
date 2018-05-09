@@ -172,7 +172,7 @@
         "virtualNetworksGskHl2PocVnetName": {
             "type": "string"
         },
-        "subnetsDefaultName": {
+        "subnetDefaultName": {
             "type": "string"
         }
     },
