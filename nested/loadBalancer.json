@@ -82,7 +82,7 @@
               }
           ],
           "backendAddressPools": [{
-            "name": "parameters('loadBalancerBackendAddressPoolName')"
+            "name": "[parameters('loadBalancerBackendAddressPoolName')]"
           }],
           "loadBalancingRules": [{
             "name": "LB-Rule1",
