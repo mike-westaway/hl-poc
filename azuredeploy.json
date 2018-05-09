@@ -181,7 +181,6 @@
         "namingInfix": "[toLower(substring(concat(parameters('namePrefix'), uniqueString(resourceGroup().id)), 0, 9))]",
         "availabilitySetName": "[concat(variables('namingInfix'), 'fabricAvSet')]",
         "dnsName": "[variables('namingInfix')]",
-        "publicIPAddressName": "[concat(variables('dnsName'), '-publicip')]",
         "loadBalancerName": "[concat(variables('namingInfix'), '-LB')]",
         "loadBalancerBackendAddressPoolName": "LBBackendPool",
         "loadBalancerInboundNatRuleNamePrefix": "NAT",
@@ -242,23 +241,10 @@
             }
         },
         {
-            "apiVersion": "[variables('apiVersionPublicIPAddresses')]",
-            "type": "Microsoft.Network/publicIPAddresses",
-            "name": "[variables('publicIPAddressName')]",
-            "location": "[parameters('location')]",
-            "properties": {
-                "publicIPAllocationMethod": "Dynamic",
-                "dnsSettings": {
-                    "domainNameLabel": "[variables('dnsName')]"
-                }
-            }
-        },
-        {
             "apiVersion": "[variables('apiVersionDeployments')]",
             "name": "loadBalancerLinkedTemplate",
             "type": "Microsoft.Resources/deployments",
             "dependsOn": [
-                "[concat('Microsoft.Network/publicIPAddresses/', variables('publicIpAddressName'))]"
             ],
             "properties": {
                 "mode": "incremental",
@@ -293,9 +279,6 @@
                     },
                     "inboundNATRuleSSHBackendPort": {
                         "value": "[variables('sshPort')]"
-                    },
-                    "publicIPAddressName": {
-                        "value": "[variables('publicIPAddressName')]"
                     },
                     "location": {
                         "value": "[parameters('location')]"
@@ -641,17 +624,9 @@
         }
     ],
     "outputs": {
-        "api-endpoint": {
-            "type": "string",
-            "value": "[concat('http://', reference(variables('publicIPAddressName')).dnsSettings.fqdn)]"
-        },
         "prefix": {
             "type": "string",
             "value": "[variables('namingInfix')]"
-        },
-        "ssh-to-first-vm": {
-            "type": "string",
-            "value": "[concat('ssh -p ', variables('sshStartingPort'), ' ', parameters('adminUsername'), '@', reference(variables('publicIPAddressName')).dnsSettings.fqdn)]"
         }
     }
 }
