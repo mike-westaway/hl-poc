@@ -167,7 +167,7 @@
                 "description": "The base URL for dependent assets",
                 "artifactsBaseUrl": ""
             },
-            "defaultValue": "https://gallery.azure.com/artifact/20151001/microsoft-azure-blockchain.azure-blockchain-hyperledger-fabricsingle-member-hyperledger-fabric-consortium.1.0.2/Artifacts"
+            "defaultValue": "https://raw.githubusercontent.com/mike-westaway/hl-poc/master"
         },
         "virtualNetworksGskHl2PocVnetName": {
             "type": "string"
