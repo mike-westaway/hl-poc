@@ -35,7 +35,7 @@
     "location": {
       "type": "string"
     },
-      "virtualNetworksGskHl2PocVnetName": {
+      "virtualNetworksVnetName": {
           "type": "string"
       },
       "subnetDefaultName": {
@@ -54,7 +54,7 @@
   },
   "resources": [
     {
-      "comments": "Generalized from resource: '/subscriptions/e583ca3a-d88f-4285-a910-837b8ae9f0f6/resourceGroups/gsk-hl2-poc/providers/Microsoft.Network/loadBalancers/gsk-hl2-poc-lb'.",
+      "comments": "Generalized from resource:",
       "type": "Microsoft.Network/loadBalancers",
       "sku": {
           "name": "Standard",
@@ -76,7 +76,7 @@
                       "privateIPAddress": "10.0.0.8",
                       "privateIPAllocationMethod": "Static",
                       "subnet": {
-                          "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworksGskHl2PocVnetName'), parameters('subnetDefaultName'))]"
+                          "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworksVnetName'), parameters('subnetDefaultName'))]"
                       }
                   }
               }

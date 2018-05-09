@@ -300,7 +300,7 @@
                     "location": {
                         "value": "[parameters('location')]"
                     },
-                    "virtualNetworksGskHl2PocVnetName": {
+                    "virtualNetworksVnetName": {
                         "value": "[variables('vNet').name]"
                     },
                     "subnetDefaultName": {
