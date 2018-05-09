@@ -89,7 +89,6 @@
           "inboundNatPools": []
       },
       "dependsOn": [
-          "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworksGskHl2PocVnetName'), parameters('subnetDefaultName'))]"
       ]
   },
     {
