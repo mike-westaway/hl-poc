@@ -168,12 +168,6 @@
                 "artifactsBaseUrl": ""
             },
             "defaultValue": "https://raw.githubusercontent.com/mike-westaway/hl-poc/master"
-        },
-        "virtualNetworksGskHl2PocVnetName": {
-            "type": "string"
-        },
-        "subnetDefaultName": {
-            "type": "string"
         }
     },
     "variables": {
