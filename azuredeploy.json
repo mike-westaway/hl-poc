@@ -309,7 +309,7 @@
                     "virtualNetworksGskHl2PocVnetName": {
                         "value": "[variables('vNet').name]"
                     },
-                    "subnetsDefaultName": {
+                    "subnetDefaultName": {
                         "value": "[variables('subnetName')]"
                     }
                 }

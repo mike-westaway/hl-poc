@@ -38,7 +38,7 @@
       "virtualNetworksGskHl2PocVnetName": {
           "type": "string"
       },
-      "subnetsDefaultName": {
+      "subnetDefaultName": {
           "type": "string"
       }
   },
@@ -76,7 +76,7 @@
                       "privateIPAddress": "10.4.0.8",
                       "privateIPAllocationMethod": "Static",
                       "subnet": {
-                          "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworksGskHl2PocVnetName'), parameters('subnetsDefaultName'))]"
+                          "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworksGskHl2PocVnetName'), parameters('subnetDefaultName'))]"
                       }
                   }
               }
