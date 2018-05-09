@@ -170,13 +170,13 @@
             "defaultValue": "https://gallery.azure.com/artifact/20151001/microsoft-azure-blockchain.azure-blockchain-hyperledger-fabricsingle-member-hyperledger-fabric-consortium.1.0.2/Artifacts"
         },
         "loadBalancersGskHl2PocLbName": {
-            "type": "String"
+            "type": "string"
         },
         "virtualNetworksGskHl2PocVnetName": {
-            "type": "String"
+            "type": "string"
         },
         "subnetsDefaultName": {
-            "type": "String"
+            "type": "string"
         }
     },
     "variables": {

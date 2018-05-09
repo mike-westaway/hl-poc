@@ -36,13 +36,13 @@
       "type": "string"
     },
     "loadBalancersGskHl2PocLbName": {
-          "type": "String"
+          "type": "string"
       },
       "virtualNetworksGskHl2PocVnetName": {
-          "type": "String"
+          "type": "string"
       },
       "subnetsDefaultName": {
-          "type": "String"
+          "type": "string"
       }
   },
   "variables": {
@@ -79,7 +79,7 @@
                       "privateIPAddress": "10.4.0.8",
                       "privateIPAllocationMethod": "Static",
                       "subnet": {
-                          "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_gsk_hl2__poc_vnet_name'), parameters('subnets_default_name'))]"
+                          "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworksGskHl2PocVnetName'), parameters('subnetsDefaultName'))]"
                       }
                   }
               }
@@ -92,7 +92,7 @@
           "inboundNatPools": []
       },
       "dependsOn": [
-          "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_gsk_hl2__poc_vnet_name'), parameters('subnets_default_name'))]"
+          "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworksGskHl2PocVnetName'), parameters('subnetDefaultName'))]"
       ]
   },
     {
