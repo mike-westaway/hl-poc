@@ -35,9 +35,6 @@
     "location": {
       "type": "string"
     },
-    "loadBalancersGskHl2PocLbName": {
-          "type": "string"
-      },
       "virtualNetworksGskHl2PocVnetName": {
           "type": "string"
       },
