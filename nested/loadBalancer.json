@@ -81,9 +81,38 @@
                   }
               }
           ],
-          "backendAddressPools": [],
-          "loadBalancingRules": [],
-          "probes": [],
+          "backendAddressPools": [{
+            "name": "parameters('loadBalancerBackendAddressPoolName')"
+          }],
+          "loadBalancingRules": [{
+            "name": "LB-Rule1",
+            "properties": {
+              "frontendIPConfiguration": {
+                "id": "[variables('lbFrontEndIPConfigID')]"
+              },
+              "backendAddressPool": {
+                "id": "[variables('lbBackendAddressPoolID')]"
+              },
+              "protocol": "Tcp",
+              "frontendPort": "[parameters('FrontendPort1')]",
+              "backendPort": "[parameters('BackendPort1')]",
+              "enableFloatingIP": false,
+              "idleTimeoutInMinutes": 5,
+              "probe": {
+                "id": "[concat(variables('lbID'),'/probes/lbProbe1')]"
+              }
+            }
+          }
+],
+          "probes": [{
+            "name": "lbProbe1",
+            "properties": {
+              "protocol": "Tcp",
+              "port": "[parameters('BackendPort1')]",
+              "intervalInSeconds": 5,
+              "numberOfProbes": 2
+            }
+          }],
           "inboundNatRules": [],
           "outboundNatRules": [],
           "inboundNatPools": []
