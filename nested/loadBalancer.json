@@ -34,7 +34,16 @@
     },
     "location": {
       "type": "string"
-    }
+    },
+    "loadBalancers_gsk_hl2_poc_lb_name": {
+          "type": "String"
+      },
+      "virtualNetworks_gsk_hl2__poc_vnet_name": {
+          "type": "String"
+      },
+      "subnets_default_name": {
+          "type": "String"
+      }
   },
   "variables": {
     "apiVersionPublicIPAddresses": "2016-09-01",
