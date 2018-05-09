@@ -299,6 +299,15 @@
                     },
                     "location": {
                         "value": "[parameters('location')]"
+                    },
+                    "loadBalancers_gsk_hl2_poc_lb_name": {
+                        "value": "[variables('loadBalancerName')]"
+                    },
+                    "virtualNetworks_gsk_hl2__poc_vnet_name": {
+                        "value": "[variables('vNet').name]"
+                    },
+                    "subnets_default_name": {
+                        "value": "[variables('subnetName')]"
                     }
                 }
             }

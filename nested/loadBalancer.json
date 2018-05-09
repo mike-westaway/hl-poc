@@ -48,60 +48,44 @@
   },
   "resources": [
     {
-      "apiVersion": "[variables('apiVersionLoadBalancers')]",
-      "name": "[parameters('loadBalancerName')]",
+      "comments": "Generalized from resource: '/subscriptions/e583ca3a-d88f-4285-a910-837b8ae9f0f6/resourceGroups/gsk-hl2-poc/providers/Microsoft.Network/loadBalancers/gsk-hl2-poc-lb'.",
       "type": "Microsoft.Network/loadBalancers",
-      "location": "[parameters('location')]",
+      "sku": {
+          "name": "Standard",
+          "tier": "Regional"
+      },
+      "name": "[parameters('loadBalancerName')]",
+      "apiVersion": "2018-02-01",
+      "location": "northeurope",
+      "scale": null,
       "properties": {
-        "frontendIPConfigurations": [
-          {
-            "name": "[variables('lbFrontEndIpConfigName')]",
-            "properties": {
-              "publicIPAddress": {
-                "id": "[resourceId('Microsoft.Network/publicIPAddresses/', parameters('publicIPAddressName'))]"
+          "provisioningState": "Succeeded",
+          "resourceGuid": "172126ef-5579-4f3a-82e9-7c594e7f59df",
+          "frontendIPConfigurations": [
+              {
+                  "name": "LoadBalancerFrontEnd",
+                  "etag": "W/\"3b3e53e4-99c0-4587-ab46-5f3f3a1af811\"",
+                  "properties": {
+                      "provisioningState": "Succeeded",
+                      "privateIPAddress": "10.4.0.8",
+                      "privateIPAllocationMethod": "Static",
+                      "subnet": {
+                          "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_gsk_hl2__poc_vnet_name'), parameters('subnets_default_name'))]"
+                      }
+                  }
               }
-            }
-          }
-        ],
-        "backendAddressPools": [
-          {
-            "name": "[parameters('loadBalancerBackendAddressPoolName')]"
-          }
-        ],
-        "loadBalancingRules": [
-          {
-            "name": "LB-Rule1",
-            "properties": {
-              "frontendIPConfiguration": {
-                "id": "[variables('lbFrontEndIPConfigID')]"
-              },
-              "backendAddressPool": {
-                "id": "[variables('lbBackendAddressPoolID')]"
-              },
-              "protocol": "Tcp",
-              "frontendPort": "[parameters('FrontendPort1')]",
-              "backendPort": "[parameters('BackendPort1')]",
-              "enableFloatingIP": false,
-              "idleTimeoutInMinutes": 5,
-              "probe": {
-                "id": "[concat(variables('lbID'),'/probes/lbProbe1')]"
-              }
-            }
-          }
-        ],
-        "probes": [
-          {
-            "name": "lbProbe1",
-            "properties": {
-              "protocol": "Tcp",
-              "port": "[parameters('BackendPort1')]",
-              "intervalInSeconds": 5,
-              "numberOfProbes": 2
-            }
-          }
-        ]
-      }
-    },
+          ],
+          "backendAddressPools": [],
+          "loadBalancingRules": [],
+          "probes": [],
+          "inboundNatRules": [],
+          "outboundNatRules": [],
+          "inboundNatPools": []
+      },
+      "dependsOn": [
+          "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_gsk_hl2__poc_vnet_name'), parameters('subnets_default_name'))]"
+      ]
+  },
     {
       "apiVersion": "[variables('apiVersionLoadBalanceInboundNATRules')]",
       "type": "Microsoft.Network/loadBalancers/inboundNatRules",
