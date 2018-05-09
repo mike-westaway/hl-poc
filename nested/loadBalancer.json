@@ -29,11 +29,11 @@
     "inboundNATRuleSSHBackendPort": {
       "type": "int"
     },
-    "location": {
+    "publicIPAddressName": {
       "type": "string"
     },
-    "subnetRef": {
-      "type":  "string"
+    "location": {
+      "type": "string"
     }
   },
   "variables": {
@@ -57,10 +57,8 @@
           {
             "name": "[variables('lbFrontEndIpConfigName')]",
             "properties": {
-              "privateIPAddress": "10.0.2.6",
-              "privateIPAllocationMethod": "static",
-              "subnet": {
-                "id":  "[parameters('subnetRef')]"
+              "publicIPAddress": {
+                "id": "[resourceId('Microsoft.Network/publicIPAddresses/', parameters('publicIPAddressName'))]"
               }
             }
           }
