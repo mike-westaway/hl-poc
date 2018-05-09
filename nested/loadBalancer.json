@@ -35,13 +35,13 @@
     "location": {
       "type": "string"
     },
-    "loadBalancers_gsk_hl2_poc_lb_name": {
+    "loadBalancersGskHl2PocLbName": {
           "type": "String"
       },
-      "virtualNetworks_gsk_hl2__poc_vnet_name": {
+      "virtualNetworksGskHl2PocVnetName": {
           "type": "String"
       },
-      "subnets_default_name": {
+      "subnetsDefaultName": {
           "type": "String"
       }
   },

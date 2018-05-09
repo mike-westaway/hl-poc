@@ -169,13 +169,13 @@
             },
             "defaultValue": "https://gallery.azure.com/artifact/20151001/microsoft-azure-blockchain.azure-blockchain-hyperledger-fabricsingle-member-hyperledger-fabric-consortium.1.0.2/Artifacts"
         },
-        "loadBalancers_gsk_hl2_poc_lb_name": {
+        "loadBalancersGskHl2PocLbName": {
             "type": "String"
         },
-        "virtualNetworks_gsk_hl2__poc_vnet_name": {
+        "virtualNetworksGskHl2PocVnetName": {
             "type": "String"
         },
-        "subnets_default_name": {
+        "subnetsDefaultName": {
             "type": "String"
         }
     },
@@ -309,13 +309,13 @@
                     "location": {
                         "value": "[parameters('location')]"
                     },
-                    "loadBalancers_gsk_hl2_poc_lb_name": {
+                    "loadBalancersGskHl2PocLbName": {
                         "value": "[variables('loadBalancerName')]"
                     },
-                    "virtualNetworks_gsk_hl2__poc_vnet_name": {
+                    "virtualNetworksGskHl2PocVnetName": {
                         "value": "[variables('vNet').name]"
                     },
-                    "subnets_default_name": {
+                    "subnetsDefaultName": {
                         "value": "[variables('subnetName')]"
                     }
                 }
