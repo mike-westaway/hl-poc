@@ -73,7 +73,7 @@
                   "etag": "W/\"3b3e53e4-99c0-4587-ab46-5f3f3a1af811\"",
                   "properties": {
                       "provisioningState": "Succeeded",
-                      "privateIPAddress": "10.4.0.8",
+                      "privateIPAddress": "10.0.0.8",
                       "privateIPAllocationMethod": "Static",
                       "subnet": {
                           "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworksGskHl2PocVnetName'), parameters('subnetDefaultName'))]"
